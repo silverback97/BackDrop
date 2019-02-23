@@ -26,7 +26,16 @@
             android:layout_height="@dimen/app_bar_height"
             app:layout_scrollFlags="snap"
             style="@style/ToolbarStyle"
-            android:gravity="top"/>
+            android:gravity="top">
+
+            <TextView
+                android:id="@+id/btnActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/second_activity"
+                android:clickable="true"/>
+
+        </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 

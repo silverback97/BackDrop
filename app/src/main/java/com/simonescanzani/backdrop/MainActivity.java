@@ -4,15 +4,20 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private ActionBar actionbar;
     private Toolbar toolbar, toolbarCollapsed;
+
+    TextView txtSecondActivity;
 
     private boolean collapsed = true;
 
@@ -26,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
         toolbarCollapsed = findViewById(R.id.toolbar_collapsed);
         setSupportActionBar(toolbar);
 
+        TextView txtTitle = findViewById(R.id.txtTitle);
+        txtTitle.setText(MainActivity.class.getSimpleName());
+
 
         actionbar = getSupportActionBar();
         actionbar.setHomeAsUpIndicator(R.drawable.ic_menu_drawer);
@@ -38,6 +46,14 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(toolbar);
 
+        txtSecondActivity = findViewById(R.id.btnActivity);
+        txtSecondActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,SecondActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
